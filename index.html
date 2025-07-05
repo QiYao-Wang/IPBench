@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>IPBench</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/f8ddf9854a.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="A Comprehensive Intellectual Property Benchmark for Large Language Models">
+    <meta name="keywords" content="IPBench, LLM, Large Language Model, artificial intelligence, AI, AGI, artificial general intelligence">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> IPBench: Benchmarking the Knowledge of Large Language Models in Intellectual Property </title>
+
+    <link rel="icon" href="./static/images/logo.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <script src="https://kit.fontawesome.com/fff5b27ec1.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/eaf1856e6f.js" crossorigin="anonymous"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <link rel="stylesheet" href="static/css/index.css">
+  </head>
+  <body>
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title is-bold">
+                <img src="static/images/logo.png" style="width:1em;vertical-align: middle" alt="Logo"/>
+                <span class="IPBench" style="vertical-align: middle">IPBench</span>
+              </h1>
+              <h2 class="subtitle is-3 publication-subtitle">
+                Benchmarking the Knowledge of Large Language Models in Intellectual Property
+              </h2>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="https://wangqiyao.me/" style="text-decoration: none; color: inherit;">Qiyao Wang<sup>1,2</sup></a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?user=g2jUPbcAAAAJ&hl=zh-CN" style="text-decoration: none; color: inherit;">Guhong Chen<sup>1</sup></a>,
+                </span>
+                <span class="author-block">Hongbo Wang<sup>2</sup>,</span>
+                <span class="author-block">Huaren Liu<sup>2</sup>,</span>
+                <br>
+                <span class="author-block">Minghui Zhu<sup>2</sup>,</span>
+                <span class="author-block">Zhifei Qin<sup>2</sup>,</span>
+                <span class="author-block">Linwei Li<sup>2</sup>,</span>
+                <span class="author-block">Yilin Yue<sup>2</sup>,</span>
+                <span class="author-block">Shiqiang Wang<sup>2</sup>,</span>
+                <span class="author-block">Jiayan Li<sup>2</sup>,</span>
+                <span class="author-block">Yihang Wu<sup>2</sup>,</span>
+                <br>
+                <span class="author-block">Ziqiang Liu<sup>1</sup>,</span>
+                <span class="author-block">Longze Chen<sup>1</sup>,</span>
+                <span class="author-block">Run Luo<sup>1</sup>,</span>
+                <span class="author-block">Liyang Fan<sup>1</sup>,</span>
+                <span class="author-block">Jiaming Li<sup>1</sup>,</span>
+                  <br>
+                <span class="author-block">Lei Zhang<sup>1</sup>,</span>
+                <span class="author-block">Kan Xu<sup>2</sup>,</span>
+                <span class="author-block">Hongfei Lin<sup>2</sup>,</span>
+                <span class="author-block">Hamid Alinejad-Rokny<sup>4</sup>,</span>
+                <br>
+                <span class="author-block">
+                  <a href="https://shiwen-ni.top/" style="text-decoration: none; color: inherit;">Shiwen Ni<sup>1,†</sup></a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://faculty.dlut.edu.cn/linyuan/zh_CN/index.htm" style="text-decoration: none; color: inherit;">Yuan Lin<sup>2,†</sup></a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://minyang.me/" style="text-decoration: none; color: inherit;">Min Yang<sup>1,3,†</sup></a>
+                </span>
+              </div>
+
+              <br>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><b><sup>1</sup>SIAT-NLP</b>, <b><sup>2</sup>DUT-IR</b>, <b><sup>3</sup>SUAT</b> and <b><sup>4</sup>UNSW</b></span>
+              </div>
+
+              <br>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">† Corresponding Authors</span>
+              </div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <span class="link-block">
+                    <a href="https://arxiv.org/abs/2504.15524" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://huggingface.co/datasets/IPBench/IPBench" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon" style="font-size:18px">🤗</span>
+                      <span>IPBench</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://github.com/IPBench/IPBench" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#leaderboard" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon has-text-white">
+                        <i class="fa-solid fa-trophy"></i>
+                      </span>
+                      <span>Leaderboard</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser">
+      <div class="container is-max-desktop has-text-centered">
+        <img src="static/images/framework.bmp" alt="">
+        <p>Overview of the IPBench.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="margin-bottom: 2vh;">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">🔔News</h2>
+            <div class="content has-text-justified">
+              <p>
+                <b>🔥 [2025-04-17]: We will release our paper and benchmark soon.</b>
+              </p>
+          </div>
+            <h2 class="title is-3">Introduction</h2>
+            <div class="content has-text-justified">
+              <p>
+                Intellectual property, especially patents, shares similarities with academic papers in that it encapsulates the essence of domain knowledge across various technical fields. However, it is also governed by the intellectual property legal frameworks of different countries and regions. As such, it carries technical, legal, and economic significance, and is closely connected to real-world intellectual property services. In particular, intellectual property data is a rich, multi-modal data type with immense potential for content mining and analysis. Focusing on the field of intellectual property, we propose a comprehensive four-level IP task taxonomy based on the DOK model. Building on this taxonomy, we developed IPBench, a large language model benchmark consisting of 10,374 data instances across 20 tasks and covering 8 types of IP mechanisms. Compared to existing related benchmarks, IPBench features the largest data scale and the most comprehensive task coverage, spanning technical and legal tasks as well as understanding, reasoning, classification, and generation tasks.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+    </div>
+    </section>
+
+    <!-- DATASET SECTION -->
+    <section class="hero is-light is-small">
+      <div class="hero-body has-text-centered">
+        <h1 class="title is-1 IPBench">
+          <img src="static/images/logo.png" alt="Logo" class="IPBench-logo"/>
+          <span class="IPBench">Intellectual Property Benchmark</span>
+        </h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Overview</h2>
+            <div class="content has-text-justified">
+              <p>
+                  To bridge the gap between real-world demands and the application of LLMs in the IP field, we introduce the first comprehensive IP task taxonomy. Our taxonomy is based on Webb's Depth of Knowledge (DOK) Theory and is extended to include four hierarchical levels: Information Processing, Logical Reasoning, Discriminant Evaluation, and Creative Generation. It includes an evaluation of models' intrinsic knowledge of IP, along with a detailed analysis of IP text from both point-wise and pairwise perspectives, covering technical and legal aspects.
+              </p>
+<!--              <img src="static/images/framework.png" alt="algebraic reasoning" class="center">-->
+<!--              <br>-->
+              <p>
+                  Building on this taxonomy, we develop <strong>IPBench</strong>, the first comprehensive
+                  <u>I</u>ntellectual <u>P</u>roperty <u>Bench</u>mark for LLMs, consisting of 10,374 data points
+                  across 20 tasks aimed at evaluating the knowledge and capabilities of LLMs in real-world IP applications.
+                </p>
+                <p>
+                  This holistic evaluation enables us to gain a hierarchical deep insight into LLMs, assessing their capabilities
+                  in in-domain memory, understanding, reasoning, discrimination, and creation across different IP mechanisms.
+                  Due to the legal nature of the IP field, there are regional differences between countries.
+                  Our IPBench is constrained within the legal frameworks of the United States and mainland China,
+                  making it a bilingual benchmark.
+                </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Comparisons with Existing Benchmarks</h2>
+            <div class="content has-text-justified">
+              <p>
+                We provide a detailed comparison between IPBench and existing benchmarks. These features make our IPBench a most large-scale and task comprehensive benchmark for Large Language Models.
+              </p>
+              <div class="content has-text-centered">
+                <img src="static/images/compare.png" alt="algebraic reasoning" class="center">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns is-centered m-6">
+          <div class="column is-full has-text-centered content">
+            <h2 class="title is-3">Statistics</h2>
+            <p>More statics please see our paper.</p>
+            <img src="static/images/main-static.png" alt="" class="center">
+          </div>
+        </div>
+
+        <div class="columns is-centered m-6">
+          <div class="column is-full has-text-centered content">
+            <h2 class="title is-3">Task Examples</h2>
+            <div class="carousel results-carousel">
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/1.1-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 1-1.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/1.2-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 1-2.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/1.3-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 1-3.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/1.4-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 1-4.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/1.5.1-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 1-5-1.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/1.5.2-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 1-5-2.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/1.6-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 1-6.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/1.7-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 1-7.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/2.1-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 2-1.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/2.2-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 2-2.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/2.3-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 2-3.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/2.4-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 2-4.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/2.5-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 2-5.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/3.1-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 3-1.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/3.2-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 3-2.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/3.3-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 3-3.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/3.4-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 3-4.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/3.5-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 3-5.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/4.1-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 4-1.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/4.2-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 4-2.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/task-example/4.3-task-example.png" alt="" width="55%"/>
+                  <p> Task example of Task 4-3.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RESULTS SECTION -->
+    <section class="hero is-light is-small">
+      <div class="hero-body has-text-centered">
+        <h1 class="title is-1 IPBench">Experiment Results</h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
+        <div class="columns is-centered m-6">
+          <div class="column is-full has-text-centered content">
+            <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
+            <div class="content has-text-justified">
+              <p>
+                We evaluated the capabilities of 16 advanced large language models, including 13 general-purpose models, 2 legal-domain models, and 1 intellectual property (IP)-domain model. The general-purpose models include chat models such as GPT-4o, DeepSeek-V3, Qwen, Llama, Gemma, and Mistral, as well as reasoning-oriented models represented by DeepSeek-R1 and QwQ. Each model was tested under five different settings: zero-shot, one-shot, two-shot, three-shot, and Chain-of-Thought. Detailed experimental parameters can be found in the paper.
+              </p>
+            </div>
+            <br>
+            <div class="model-labels-container">
+              <span class="leaderboard-label human_expert">General-purpose Model</span>
+              <span class="leaderboard-label open_source">Law-oriented Model</span>
+              <span class="leaderboard-label proprietary">IP-oriented Model</span>
+            </div>
+            <br>
+            <div class="content has-text-centered">
+              <p>
+                Click on different buttons to view the results under various settings.
+              </p>
+            </div>
+            <div class="leaderboard-container">
+              <div class="table-wrapper">
+                <table id="IPBench-table">
+                  <thead>
+                    <tr>
+                      <th colspan="2" class="reset-cell clickable" style="text-align: center;">Reset</th>
+                      <th class="pro-details-cell clickable" colspan="1">MCQA</th>
+                      <th class="val-details-cell clickable" colspan="1">Classification</th>
+                      <th class="test-details-cell clickable" colspan="1">Generation</th>
+                    </tr>
+
+                    <tr>
+                      <th class="sortable clickable" rowspan="2" data-sort="string">Name</th>
+                      <th class="sortable clickable" rowspan="2" data-sort="string">Size</th>
+<!--                      <th class="sortable clickable" rowspan="2" data-sort="date">Date</th>-->
+<!--                      <th class="sortable clickable pro-overall" rowspan="2" data-sort="number">Overall</th>-->
+                      <th class="sortable clickable pro-overall" rowspan="2" data-sort="number">OA</th>
+
+                      <th class="hidden pro-details sortable clickable" rowspan="2" data-sort="number">1-1</th>
+                      <th class="hidden pro-details sortable clickable" rowspan="2" data-sort="number">1-2</th>
+                      <th class="hidden pro-details sortable clickable" rowspan="2" data-sort="number">1-3</th>
+                      <th class="hidden pro-details sortable clickable" rowspan="2" data-sort="number">1-4</th>
+                      <th class="hidden pro-details sortable clickable" rowspan="2" data-sort="number">1-6</th>
+                      <th class="hidden pro-details sortable clickable" rowspan="2" data-sort="number">1-7</th>
+                      <th class="hidden pro-details sortable clickable" rowspan="2" data-sort="number">2-1</th>
+                      <th class="hidden pro-details sortable clickable" rowspan="2" data-sort="number">2-2</th>
+                      <th class="hidden pro-details sortable clickable" rowspan="2" data-sort="number">2-3</th>
+                      <th class="hidden pro-details sortable clickable" rowspan="2" data-sort="number">2-4</th>
+                      <th class="hidden pro-details sortable clickable" rowspan="2" data-sort="number">2-5</th>
+                      <th class="hidden pro-details sortable clickable" rowspan="2" data-sort="number">3-1</th>
+                      <th class="hidden pro-details sortable clickable" rowspan="2" data-sort="number">3-2</th>
+                      <th class="hidden pro-details sortable clickable" rowspan="2" data-sort="number">3-3</th>
+                      <th class="hidden pro-details sortable clickable" rowspan="2" data-sort="number">3-4</th>
+                      <th class="hidden pro-details sortable clickable" rowspan="2" data-sort="number">3-5</th>
+                      <th class="hidden pro-details sortable clickable" rowspan="2" data-sort="number">4-3</th>
+                      <th class="sortable clickable val-overall" rowspan="2" data-sort="number">--</th>
+                      <th class="hidden val-details sortable clickable" colspan="4" data-sort="number">IPC Classification(1-5-1)</th>
+                      <th class="hidden val-details sortable clickable" colspan="4" data-sort="number">CPC Classification(1-5-2)</th>
+
+                      <th class="sortable clickable test-overall" rowspan="2" data-sort="number">--</th>
+                      <th class="hidden test-details sortable clickable" colspan="5" data-sort="number">Abstract Generation(4-1)</th>
+                      <th class="hidden test-details sortable clickable" colspan="6" data-sort="number">Dependent Claim Generation(4-2)</th>
+
+                     </tr>
+                    <tr>
+                      <th class="hidden val-details sortable clickable" data-sort="number">Exact-Match</th>
+                      <th class="hidden val-details sortable clickable" data-sort="number">Section</th>
+                      <th class="hidden val-details sortable clickable" data-sort="number">Class</th>
+                      <th class="hidden val-details sortable clickable" data-sort="number">Subclass</th>
+                      <th class="hidden val-details sortable clickable" data-sort="number">Exact-Match</th>
+                      <th class="hidden val-details sortable clickable" data-sort="number">Section</th>
+                      <th class="hidden val-details sortable clickable" data-sort="number">Class</th>
+                      <th class="hidden val-details sortable clickable" data-sort="number">Subclass</th>
+
+                      <th class="hidden test-details sortable clickable" data-sort="number">BLEU</th>
+                      <th class="hidden test-details sortable clickable" data-sort="number">R-L</th>
+                      <th class="hidden test-details sortable clickable" data-sort="number">BS</th>
+                      <th class="hidden test-details sortable clickable" data-sort="number">LLMScore(1-10)</th>
+                      <th class="hidden test-details sortable clickable" data-sort="number">Tokens#(148.5)</th>
+                      <th class="hidden test-details sortable clickable" data-sort="number">BLEU</th>
+                      <th class="hidden test-details sortable clickable" data-sort="number">R-L</th>
+                      <th class="hidden test-details sortable clickable" data-sort="number">BS</th>
+                      <th class="hidden test-details sortable clickable" data-sort="number">LLMScore(1-10)</th>
+                      <th class="hidden test-details sortable clickable" data-sort="number">Tokens#(437.6)</th>
+                      <th class="hidden test-details sortable clickable" data-sort="number">DC#(5.2)</th>
+                  </tr>
+                  </thead>
+
+                  <tbody>
+                    <!-- Table body will be populated dynamically -->
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-------------------------------------------------------------------- Error Analysis SECTION -------------------------------------------------------------------->
+        <div class="columns is-centered m-6">
+          <div class="column is-full has-text-centered content">
+            <h2 class="title is-3">Error Analysis</h2>
+            <div class="content has-text-justified">
+              <p>
+                We randomly selected 300 incorrect responses across all tasks from GPT-4o-mini under the CoT setting for error analysis. We classify the error into 7 types: Consistency error, Hallucination error, Reasoning error, Refusing error, Priority error, Mathematical error and Obsolescence error, where Reasoning Error is the most common error type, accounting for 33%.
+              </p>
+            </div>
+            <div class="content has-text-centered">
+              <img src="static/images/error_type.bmp" alt="error distribution" width="50%">
+              <p> Error distribution over 300 annotated GPT-4o-mini errors.</p>
+            </div>
+          </div>
+        </div>
+      <!-------------------------------------------------------------------- Error Example  -------------------------------------------------------------------->
+        <div class="columns is-centered m-6">
+          <div class="column is-full has-text-centered content">
+            <h2 class="title is-3" id="examples">Error Examples</h2>
+            <div class="carousel results-carousel">
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/error-type-case/Consistency-Error.png" alt="grade-lv" width="60%"/>
+                  <p>Consistency error case study.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/error-type-case/Hallucination-Error.png" alt="grade-lv" width="60%"/>
+                  <p>Hallucination error case study.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/error-type-case/Mathematical-Error.png" alt="grade-lv" width="60%"/>
+                  <p>Mathematical error case study.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/error-type-case/Obsolescence-Error.png" alt="grade-lv" width="60%"/>
+                  <p>Obsolescence error case study.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/error-type-case/Priority-Error.png" alt="grade-lv" width="60%"/>
+                  <p>Priority error case study.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/error-type-case/Reasoning-Error.png" alt="grade-lv" width="60%"/>
+                  <p>Reasoning error case study.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/error-type-case/Refusing-Error.png" alt="grade-lv" width="60%"/>
+                  <p>Refusing error case study.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-------------------------------------------------------------------- Correct Example -------------------------------------------------------------------->
+      </div>
+    </section>
+
+    <!-- @PAN TODO: bibtex -->
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title is-3 has-text-centered">BibTeX</h2>
+        <pre><code>@article{wang2025ipbench,
+  title={IPBench: Benchmarking the Knowledge of Large Language Models in Intellectual Property},
+  author={Wang, Qiyao and Chen, Guhong and Wang, Hongbo and Liu, Huaren and Zhu, Minghui and Qin, Zhifei and Li, Linwei and Yue, Yilin and Wang, Shiqiang and Li, Jiayan and others},
+  journal={arXiv preprint arXiv:2504.15524},
+  year={2025}
+}
+    </code></pre>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is website adapted from <a href="https://nerfies.github.io/">Nerfies</a>, <a href="https://mathvista.github.io/">MathVista</a> and <a href="https://mmmu-benchmark.github.io/">MMMU</a>, licensed under a <a rel="license"
+                                                  href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
